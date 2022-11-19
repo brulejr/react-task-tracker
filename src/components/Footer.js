@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const Footer = () => {
+  const { t } = useTranslation()
+
   return (
     <footer>
-      <p>Copyright &copy; 2022</p>
-      <Link to="/about">About</Link>
+      <p>{t('page.framework.copyright')}</p>
+      <Link to="/about">{t('page.framework.links.about')}</Link>
     </footer>
   )
 }

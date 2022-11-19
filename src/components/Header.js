@@ -1,29 +1,23 @@
 import { useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
-import PropTypes from 'prop-types'
 import Button from './Button'
 
-const Header = ({ title, onAdd, showAdd }) => {
+const Header = ({ onAdd, showAdd }) => {
   const location = useLocation()
+  const { t } = useTranslation()
+
   return (
     <header className='header'>
-      <h1>{title}</h1>
+      <h1>{t('page.framework.title')}</h1>
       { location.pathname === '/' && (
         <Button 
           color={showAdd ? 'steelblue' : 'green'}
-          text={showAdd ? 'Close' : 'Add'}
+          text={showAdd ? t('page.framework.buttons.close') : t('page.framework.buttons.add')}
           onClick={onAdd}/>
       )}
     </header>
   )
-}
-
-Header.defaultProps = {
-  title: 'Task Tracker'
-}
-
-Header.propTypes = {
-  title: PropTypes.string.isRequired
 }
 
 export default Header
