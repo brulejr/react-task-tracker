@@ -11,6 +11,12 @@
       "text": "Meeting at School",
       "day": "Feb 6th at 1:30pm",
       "reminder": true
+    },
+    {
+      "text": "Take Test",
+      "day": "Monday",
+      "reminder": true,
+      "id": 3
     }
   ],
   "locales": [
@@ -52,6 +58,11 @@
           "validation": {
             "taskRequired": "Please add a task"
           }
+        },
+        "Tasks": {
+          "messages": {
+            "noTasksAvailable": "No Tasks To Show"
+          }
         }
       }
     },
@@ -92,6 +103,11 @@
           },
           "validation": {
             "taskRequired": "Por favor agregue una tarea"
+          }
+        },
+        "Tasks": {
+          "messages": {
+            "noTasksAvailable": "No hay tareas para mostrar"
           }
         }
       }
