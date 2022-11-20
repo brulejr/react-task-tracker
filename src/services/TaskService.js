@@ -1,5 +1,7 @@
+const TASKS_URL = `${process.env.REACT_APP_DATA_URL}/tasks`
+
 const createTask = async (task) => {
-  const res = await fetch('http://localhost:5000/tasks', {
+  const res = await fetch(TASKS_URL, {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
@@ -10,23 +12,23 @@ const createTask = async (task) => {
 }
 
 const deleteTask = async (id) => {
-  return fetch(`http://localhost:5000/tasks/${id}`, {
+  return fetch(`${TASKS_URL}/${id}`, {
     method: 'DELETE',
   })
 }
 
 const fetchTask = async (id) => {
-  const res = await fetch(`http://localhost:5000/tasks/${id}`)
+  const res = await fetch(`${TASKS_URL}/${id}`)
   return res.json()
 }
 
 const fetchTasks = async () => {
-  const res = await fetch('http://localhost:5000/tasks')
+  const res = await fetch(TASKS_URL)
   return res.json()
 }
 
 const updateTask = async (id, task) => {
-  const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+  const res = await fetch(`${TASKS_URL}/${id}`, {
     method: 'PUT',
     headers: {
       'Content-type': 'application/json',
