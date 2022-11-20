@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Container } from 'semantic-ui-react'
 import { useSelector } from 'react-redux'
 
 import 'semantic-ui-css/semantic.min.css'
@@ -12,12 +13,12 @@ const App = () => {
 
   return (
     <Router>
-      <div className='container'>
-        <Routes>
+      <Container text>
+        <Routes> 
           <Route path='/' element={ <TaskListCard /> } />
           <Route path='/about' element={ <About /> } />
         </Routes>
-      </div>
+      </Container>
     </Router>
   )
 }

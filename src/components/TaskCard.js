@@ -23,7 +23,7 @@ const TaskCard = ({ task }) => {
   return (
     <Card 
       fluid 
-      color={task.reminder ? 'green' : ''}
+      color={task.reminder ? 'green' : null}
       onDoubleClick={() => onToggle(task.id)}>
       <Card.Content>
         <Button 
