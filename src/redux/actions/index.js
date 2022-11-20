@@ -1,16 +1,10 @@
 import { ADD_TASK, DELETE_TASK, FETCH_TASKS, TOGGLE_SHOW_ADD_TASK, TOGGLE_TASK_REMINDER } from '../types'
+import TaskService from "../../services/TaskService"
 
 export const addTask = (task) => async (dispatch, getState) => {
   try {
 
-    const res = await fetch('http://localhost:5000/tasks', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(task),
-    })
-    const addedTask = await res.json()
+    const addedTask = await TaskService.createTask(task)
 
     dispatch({
       type: ADD_TASK,
@@ -27,9 +21,7 @@ export const addTask = (task) => async (dispatch, getState) => {
 export const deleteTask = (id) => async (dispatch) => {
   try {
 
-    await fetch(`http://localhost:5000/tasks/${id}`, {
-      method: 'DELETE',
-    })
+    await TaskService.deleteTask(id)
     
     dispatch({
       type: DELETE_TASK,
@@ -46,8 +38,7 @@ export const deleteTask = (id) => async (dispatch) => {
 export const fetchTasks = () => async (dispatch) => {
   try {
 
-    const res = await fetch('http://localhost:5000/tasks')
-    const tasks = await res.json()
+    const tasks = await TaskService.fetchTasks()
 
     dispatch({
       type: FETCH_TASKS,
@@ -65,6 +56,7 @@ export const toggleShowAddTask = (showAddTask) => async (dispatch) => {
   try {
 
     const updatedShowAddTask = !showAddTask
+    
     dispatch({
       type: TOGGLE_SHOW_ADD_TASK,
       payload: { showAddTask: updatedShowAddTask }
@@ -80,19 +72,9 @@ export const toggleShowAddTask = (showAddTask) => async (dispatch) => {
 export const toggleTaskReminder = (id) => async (dispatch) => {
   try {
 
-    const res1 = await fetch(`http://localhost:5000/tasks/${id}`)
-    const taskToToggle = await res1.json()
-
+    const taskToToggle = await TaskService.fetchTask(id)
     const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder }
-
-    const res2 = await fetch(`http://localhost:5000/tasks/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(updTask),
-    })
-    const task = await res2.json()
+    const task = await TaskService.updateTask(id, updTask)
 
     dispatch({
       type: TOGGLE_TASK_REMINDER,
