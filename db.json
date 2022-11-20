@@ -11,12 +11,6 @@
       "text": "Meeting at School",
       "day": "Feb 6th at 1:30pm",
       "reminder": true
-    },
-    {
-      "text": "Take Test",
-      "day": "Monday",
-      "reminder": true,
-      "id": 3
     }
   ],
   "locales": [
@@ -33,7 +27,7 @@
             "about": "About",
             "returnToHome": "Go Back"
           },
-          "copyright": "Copyright \u00A9 2022"
+          "copyright": "Copyright © 2022"
         },
         "About": {
           "version": "Version {{version}}"
@@ -45,8 +39,8 @@
               "placeholder": "Add Task"
             },
             "day": {
-              "label": "Day \u0026 Time",
-              "placeholder": "Add Day \u0026 Time"
+              "label": "Day & Time",
+              "placeholder": "Add Day & Time"
             },
             "reminder": {
               "label": "Reminder"
@@ -74,7 +68,7 @@
             "about": "Sobre",
             "returnToHome": "Regresa"
           },
-          "copyright": "Derechos de Autor \u00A9 2022"
+          "copyright": "Derechos de Autor © 2022"
         },
         "About": {
           "version": "Version {{version}}"
@@ -100,7 +94,7 @@
             "taskRequired": "Por favor agregue una tarea"
           }
         }
-      }      
+      }
     }
   ]
 }

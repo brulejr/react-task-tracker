@@ -68,3 +68,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Resources
+* [Introduction React-Redux using Hooks (useSelector && useDispatch)](https://dev.to/bangash1996/introduction-react-redux-using-hooks-useselector-usedispatch-26ch)
+* [React Redux CRUD example with API calls](https://www.bezkoder.com/react-redux-crud-example/)

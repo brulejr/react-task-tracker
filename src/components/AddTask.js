@@ -1,8 +1,13 @@
+import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const AddTask = ({ onAdd }) => {
+import { addTask } from '../redux/actions'
+
+const AddTask = () => {
   const { t } = useTranslation()
+
+  const dispatch = useDispatch()
 
   const [text, setText] = useState('')
   const [day, setDay] = useState('')
@@ -14,10 +19,15 @@ const AddTask = ({ onAdd }) => {
       alert(t('page.AddTask.validation.taskRequired'))
       return
     }
-    onAdd({ text, day, reminder })
-    setText('')
-    setDay('')
-    setReminder(false)
+    dispatch(addTask({ text, day, reminder }))
+      .then(response => {
+        setText('')
+        setDay('')
+        setReminder(false)
+      })
+      .catch(e => {
+        console.log(e);
+      })
   }
 
   return (
