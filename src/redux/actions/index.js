@@ -1,4 +1,4 @@
-import { ADD_TASK, DELETE_TASK, FETCH_TASKS, TOGGLE_SHOW_ADD_TASK, TOGGLE_TASK_REMINDER } from '../types'
+import { ADD_TASK, DELETE_TASK, FETCH_TASKS, TOGGLE_SHOW_TASK_FORM, TOGGLE_TASK_REMINDER } from '../types'
 import TaskService from "../../services/TaskService"
 
 export const addTask = (task) => async (dispatch, getState) => {
@@ -52,17 +52,17 @@ export const fetchTasks = () => async (dispatch) => {
   }
 }
 
-export const toggleShowAddTask = (showAddTask) => async (dispatch) => {
+export const toggleShowTaskForm = (showTaskForm) => async (dispatch) => {
   try {
 
-    const updatedShowAddTask = !showAddTask
+    const updatedShowTaskForm = !showTaskForm
     
     dispatch({
-      type: TOGGLE_SHOW_ADD_TASK,
-      payload: { showAddTask: updatedShowAddTask }
+      type: TOGGLE_SHOW_TASK_FORM,
+      payload: { showTaskForm: updatedShowTaskForm }
     })
 
-    return Promise.resolve(updatedShowAddTask)
+    return Promise.resolve(updatedShowTaskForm)
   
   } catch (err) {
     return Promise.reject(err)

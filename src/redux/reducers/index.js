@@ -1,7 +1,7 @@
-import { ADD_TASK, DELETE_TASK, FETCH_TASKS, TOGGLE_SHOW_ADD_TASK, TOGGLE_TASK_REMINDER } from '../types'
+import { ADD_TASK, DELETE_TASK, FETCH_TASKS, TOGGLE_SHOW_TASK_FORM, TOGGLE_TASK_REMINDER } from '../types'
 
 const INITIAL_STATE = {
-  showAddTask: false,
+  showTaskForm: false,
   tasks: []
 }
 
@@ -30,10 +30,10 @@ const reducers = (state = INITIAL_STATE, action) => {
         tasks: payload.tasks
       }
 
-    case TOGGLE_SHOW_ADD_TASK:
+    case TOGGLE_SHOW_TASK_FORM:
       return {
         ...state,
-        showAddTask: payload.showAddTask
+        showTaskForm: payload.showTaskForm
       }
 
     case TOGGLE_TASK_REMINDER:

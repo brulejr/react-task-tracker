@@ -11,7 +11,7 @@ const TaskForm = () => {
 
   const dispatch = useDispatch()
   const taskReducer = useSelector((state) => state.taskReducer)
-  const { showAddTask } = taskReducer
+  const { showTaskForm } = taskReducer
 
   const [text, setText] = useState('')
   const [day, setDay] = useState('')
@@ -34,7 +34,7 @@ const TaskForm = () => {
       })
   }
 
-  return ( showAddTask &&
+  return ( showTaskForm &&
     <Form onSubmit={onSubmit}>
       <Form.Input required
         label={t('page.AddTask.fields.task.label')}
