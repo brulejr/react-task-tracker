@@ -14,7 +14,7 @@ const TaskListCard = () => {
   const { t } = useTranslation()
 
   const dispatch = useDispatch()
-  const taskReducer = useSelector((state) => state.taskReducer);
+  const taskReducer = useSelector((state) => state.taskReducer)
   const { tasks } = taskReducer
 
   useEffect(() => {

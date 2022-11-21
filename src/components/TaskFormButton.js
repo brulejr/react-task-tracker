@@ -6,9 +6,9 @@ import { toggleShowAddTask } from '../redux/actions'
 
 const TaskFormButton = () => {
   const { t } = useTranslation()
-  
+
   const dispatch = useDispatch()
-  const taskReducer = useSelector((state) => state.taskReducer);
+  const taskReducer = useSelector((state) => state.taskReducer)
   const { showAddTask } = taskReducer
 
   const onToggleShowAddTask = () => {

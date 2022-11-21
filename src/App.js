@@ -8,7 +8,7 @@ import About from './components/About'
 import TaskListCard from './components/TaskListCard'
 
 const App = () => {
-  const taskReducer = useSelector((state) => state.taskReducer);
+  const taskReducer = useSelector((state) => state.taskReducer)
   const { showAddTask } = taskReducer
 
   return (

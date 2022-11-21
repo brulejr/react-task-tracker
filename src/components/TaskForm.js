@@ -1,5 +1,5 @@
 import { Form } from 'semantic-ui-react'
-import { DateTimeInput } from 'semantic-ui-calendar-react';
+import { DateTimeInput } from 'semantic-ui-calendar-react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -10,7 +10,7 @@ const TaskForm = () => {
   const { t } = useTranslation()
 
   const dispatch = useDispatch()
-  const taskReducer = useSelector((state) => state.taskReducer);
+  const taskReducer = useSelector((state) => state.taskReducer)
   const { showAddTask } = taskReducer
 
   const [text, setText] = useState('')
@@ -30,7 +30,7 @@ const TaskForm = () => {
         setReminder(false)
       })
       .catch(e => {
-        console.log(e);
+        console.log(e)
       })
   }
 
