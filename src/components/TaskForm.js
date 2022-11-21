@@ -1,4 +1,5 @@
 import { Form } from 'semantic-ui-react'
+import { DateTimeInput } from 'semantic-ui-calendar-react';
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -37,14 +38,17 @@ const TaskForm = () => {
         label={t('page.AddTask.fields.task.label')}
         placeholder={t('page.AddTask.fields.task.placeholder')}
         icon='tasks'
+        iconPosition='left'
         value={text}
         onChange={(e, data) => setText(data.value)} />
-      <Form.Input
-        label={t('page.AddTask.fields.day.label')}
-        placeholder={t('page.AddTask.fields.day.placeholder')}
-        icon='calendar'
-        value={day}
-        onChange={(e, data) => setDay(data.value)} />
+      <Form.Field>
+        <DateTimeInput
+          label={t('page.AddTask.fields.day.label')}
+          placeholder={t('page.AddTask.fields.day.placeholder')}
+          iconPosition="left"
+          value={day}
+          onChange={(e, data) => setDay(data.value)}   />
+      </Form.Field>
       <Form.Checkbox 
         label={t('page.AddTask.fields.reminder.label')}
         checked={reminder}
