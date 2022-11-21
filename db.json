@@ -39,6 +39,7 @@
           "version": "Version {{version}}"
         },
         "AddTask": {
+          "title": "Create New Task",
           "fields": {
             "task": {
               "label": "Task",
@@ -85,6 +86,7 @@
           "version": "Version {{version}}"
         },
         "AddTask": {
+          "title": "Crear Nueva Tarea",
           "fields": {
             "task": {
               "label": "Tarea",
