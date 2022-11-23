@@ -28,14 +28,15 @@ const TaskForm = () => {
 
   const _validationSchema = Yup.object({
     text: Yup.string().required("Required"),
+    day: Yup.string(),
     reminder: Yup.boolean()
   })
 
-  const _submitForm = (values, { resetForm, setSubmitting }) => {
+  const _submitForm = (values, { dirty, resetForm, setSubmitting }) => {
     dispatch(addTask({ ...values }))
       .then(response => {
-        resetForm()
         setSubmitting(false)
+        _closeModal(dirty, resetForm)
       })
       .catch(e => {
         console.log(e)
@@ -74,6 +75,8 @@ const TaskForm = () => {
                 icon='calendar'
                 iconPosition='left'
                 autoComplete='off'
+                type="date"
+                required
                 errorPrompt />
               <Checkbox
                 id="checkbox-reminder"
