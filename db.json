@@ -58,6 +58,7 @@
             "reset": "Reset"
           },
           "validation": {
+            "dayRequired": "Please select a day",
             "taskRequired": "Please add a task"
           }
         },
@@ -106,6 +107,7 @@
             "submit": "Guardar Tarea"
           },
           "validation": {
+            "dayRequired": "Por favor seleccione un dia",
             "taskRequired": "Por favor agregue una tarea"
           }
         },

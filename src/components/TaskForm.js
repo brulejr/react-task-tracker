@@ -27,8 +27,8 @@ const TaskForm = () => {
   }
 
   const _validationSchema = Yup.object({
-    text: Yup.string().required("Required"),
-    day: Yup.string(),
+    text: Yup.string().required(t('page.AddTask.validation.taskRequired')),
+    day: Yup.string().required(t('page.AddTask.validation.dayRequired')),
     reminder: Yup.boolean()
   })
 
@@ -76,7 +76,6 @@ const TaskForm = () => {
                 iconPosition='left'
                 autoComplete='off'
                 type="date"
-                required
                 errorPrompt />
               <Checkbox
                 id="checkbox-reminder"
