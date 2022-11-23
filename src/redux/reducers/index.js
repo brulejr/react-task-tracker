@@ -12,7 +12,6 @@ const reducers = (state = INITIAL_STATE, action) => {
   switch (type) {
 
     case ADD_TASK:
-      console.log('task to add', payload)
       return {
         ...state,
         tasks: [ ...tasks, payload ]

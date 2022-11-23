@@ -1,7 +1,8 @@
-import { Form, Modal } from 'semantic-ui-react'
-import { DateTimeInput } from 'semantic-ui-calendar-react'
+import { Modal } from 'semantic-ui-react'
+import { Formik } from 'formik'
+import { Form, Checkbox, Input, SubmitButton } from 'formik-semantic-ui-react'
+import * as Yup from 'yup'
 import { useDispatch, useSelector } from 'react-redux'
-import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { addTask, toggleShowTaskForm } from '../redux/actions'
@@ -13,26 +14,28 @@ const TaskForm = () => {
   const taskReducer = useSelector((state) => state.taskReducer)
   const { showTaskForm } = taskReducer
 
-  const [text, setText] = useState('')
-  const [day, setDay] = useState('')
-  const [reminder, setReminder] = useState(false)
-
-  const closeModal = () => {
+  const _closeModal = (dirty, resetForm) => {
+    console.log('dirty', dirty)
+    resetForm()
     dispatch(toggleShowTaskForm(showTaskForm))
   }
 
-  const onSubmit = (e) => {
-    e.preventDefault()
-    if (!text) {
-      alert(t('page.AddTask.validation.taskRequired'))
-      return
-    }
-    dispatch(addTask({ text, day, reminder }))
+  const _initialValues = {
+    text: '',
+    day: '',
+    reminder: false
+  }
+
+  const _validationSchema = Yup.object({
+    text: Yup.string().required("Required"),
+    reminder: Yup.boolean()
+  })
+
+  const _submitForm = (values, { resetForm, setSubmitting }) => {
+    dispatch(addTask({ ...values }))
       .then(response => {
-        closeModal()
-        setText('')
-        setDay('')
-        setReminder(false)
+        resetForm()
+        setSubmitting(false)
       })
       .catch(e => {
         console.log(e)
@@ -40,38 +43,54 @@ const TaskForm = () => {
   }
 
   return (
-    <Modal
-      closeIcon
-      open={showTaskForm}
-      onClose={() => closeModal()}>
-      <Modal.Header>{t('page.AddTask.title')}</Modal.Header>
-      <Modal.Content>
-        <Form onSubmit={onSubmit}>
-          <Form.Input required
-            label={t('page.AddTask.fields.task.label')}
-            placeholder={t('page.AddTask.fields.task.placeholder')}
-            icon='tasks'
-            iconPosition='left'
-            value={text}
-            onChange={(e, data) => setText(data.value)} />
-          <Form.Field>
-            <DateTimeInput
-              label={t('page.AddTask.fields.day.label')}
-              placeholder={t('page.AddTask.fields.day.placeholder')}
-              iconPosition="left"
-              value={day}
-              onChange={(e, data) => setDay(data.value)}   />
-          </Form.Field>
-          <Form.Checkbox
-            label={t('page.AddTask.fields.reminder.label')}
-            checked={reminder}
-            onChange={(e, data) => setReminder(data.checked)} />
-          <Form.Button
-            primary
-            content={t('page.AddTask.buttons.saveTask')} />
-        </Form>
-      </Modal.Content>
-    </Modal>
+    <Formik 
+      initialValues={_initialValues} 
+      validationSchema={_validationSchema} 
+      onSubmit={_submitForm}
+    >
+      {({ dirty, isSubmitting, isValid, resetForm }) => (
+        <Modal
+          closeIcon
+          open={showTaskForm}
+          onClose={() => _closeModal(dirty, resetForm)}
+        >
+          <Modal.Header>{t('page.AddTask.title')}</Modal.Header>
+          <Modal.Content>
+            <Form size="large">
+              <Input
+                id='input-text'
+                name='text'
+                label={t('page.AddTask.fields.task.label')}
+                placeholder={t('page.AddTask.fields.task.placeholder')}
+                icon='tasks'
+                iconPosition='left'
+                autoComplete='off'
+                errorPrompt />
+              <Input
+                id='input-day'
+                name='day'
+                label={t('page.AddTask.fields.day.label')}
+                placeholder={t('page.AddTask.fields.day.placeholder')}
+                icon='calendar'
+                iconPosition='left'
+                autoComplete='off'
+                errorPrompt />
+              <Checkbox
+                id="checkbox-reminder"
+                fitted
+                name="reminder"
+                label={t('page.AddTask.fields.reminder.label')} />
+              <SubmitButton
+                fluid
+                primary
+                content={t('page.AddTask.buttons.submit')}
+                loading={isSubmitting}
+                disabled={!isValid} />
+            </Form>
+          </Modal.Content>
+        </Modal>
+      )}
+    </Formik>
   )
 }
 

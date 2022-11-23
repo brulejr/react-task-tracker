@@ -54,7 +54,8 @@
             }
           },
           "buttons": {
-            "saveTask": "Save Task"
+            "submit": "Save Task",
+            "reset": "Reset"
           },
           "validation": {
             "taskRequired": "Please add a task"
@@ -101,7 +102,8 @@
             }
           },
           "buttons": {
-            "saveTask": "Guardar Tarea"
+            "reset": "Reiniciar",
+            "submit": "Guardar Tarea"
           },
           "validation": {
             "taskRequired": "Por favor agregue una tarea"
