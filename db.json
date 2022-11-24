@@ -22,6 +22,11 @@
   "locales": [
     {
       "id": "en",
+      "confirmation": {
+        "cancel": "No",
+        "confirm": "Yes",
+        "title": "Are you sure?"
+      },
       "page": {
         "framework": {
           "title": "Task Tracker",
@@ -71,6 +76,11 @@
     },
     {
       "id": "es",
+      "confirmation": {
+        "cancel": "Non",
+        "confirm": "Si",
+        "title": "Estas segyro?"
+      },      
       "page": {
         "framework": {
           "title": "Rastreador de Tareas",

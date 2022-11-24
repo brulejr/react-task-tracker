@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 
 import { addTask, toggleShowTaskForm } from '../redux/actions'
+import { confirm } from './Confirmation'
 
 const TaskForm = () => {
   const { t } = useTranslation()
@@ -14,10 +15,11 @@ const TaskForm = () => {
   const taskReducer = useSelector((state) => state.taskReducer)
   const { showTaskForm } = taskReducer
 
-  const _closeModal = (dirty, resetForm) => {
-    console.log('dirty', dirty)
-    resetForm()
-    dispatch(toggleShowTaskForm(showTaskForm))
+  const _closeModal = async (dirty, resetForm) => {
+    if (!dirty || await confirm(t('confirmation.title'))) {
+      resetForm()
+      dispatch(toggleShowTaskForm(showTaskForm))  
+    }
   }
 
   const _initialValues = {
