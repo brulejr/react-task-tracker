@@ -1,6 +1,6 @@
-import { Modal } from 'semantic-ui-react'
+import { Modal, FormGroup } from 'semantic-ui-react'
 import { Formik } from 'formik'
-import { Form, Checkbox, Input, SubmitButton } from 'formik-semantic-ui-react'
+import { Form, Checkbox, Input, SubmitButton, ResetButton } from 'formik-semantic-ui-react'
 import * as Yup from 'yup'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
@@ -82,12 +82,20 @@ const TaskForm = () => {
                 fitted
                 name="reminder"
                 label={t('page.AddTask.fields.reminder.label')} />
-              <SubmitButton
-                fluid
-                primary
-                content={t('page.AddTask.buttons.submit')}
-                loading={isSubmitting}
-                disabled={!isValid} />
+              <FormGroup unstackable>
+                <SubmitButton
+                  fluid
+                  primary
+                  content={t('page.AddTask.buttons.submit')}
+                  loading={isSubmitting}
+                  disabled={!isValid}
+                  width={8} />
+                <ResetButton
+                  fluid
+                  color="green"
+                  content={t('page.AddTask.buttons.reset')}
+                  width={8} />
+              </FormGroup>
             </Form>
           </Modal.Content>
         </Modal>
