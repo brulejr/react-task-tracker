@@ -16,7 +16,7 @@ const TaskForm = () => {
   const { showTaskForm } = taskReducer
 
   const _closeModal = async (dirty, resetForm) => {
-    if (!dirty || await confirm(t('confirmation.title'))) {
+    if (!dirty || await confirm(t('page.AddTask.messages.dirtyTask'))) {
       resetForm()
       dispatch(toggleShowTaskForm(showTaskForm))  
     }

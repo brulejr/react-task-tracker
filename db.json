@@ -23,9 +23,9 @@
     {
       "id": "en",
       "confirmation": {
-        "cancel": "No",
-        "confirm": "Yes",
-        "title": "Are you sure?"
+        "no": "No",
+        "yes": "Yes",
+        "areyousure": "Are you sure?"
       },
       "page": {
         "framework": {
@@ -65,6 +65,9 @@
           "validation": {
             "dayRequired": "Please select a day",
             "taskRequired": "Please add a task"
+          },
+          "messages": {
+            "dirtyTask": "This task has changes that you will lose if you continue."
           }
         },
         "Tasks": {
@@ -77,9 +80,9 @@
     {
       "id": "es",
       "confirmation": {
-        "cancel": "Non",
-        "confirm": "Si",
-        "title": "Estas segyro?"
+        "no": "Non",
+        "yes": "Si",
+        "areyousure": "Estas segyro?"
       },      
       "page": {
         "framework": {
