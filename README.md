@@ -72,11 +72,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # Resources
 
 ## Tutorials
+* [cREATE rEACT aPP](https://create-react-app.dev/)
 * [Introduction React-Redux using Hooks (useSelector && useDispatch)](https://dev.to/bangash1996/introduction-react-redux-using-hooks-useselector-usedispatch-26ch)
 * [React Redux CRUD example with API calls](https://www.bezkoder.com/react-redux-crud-example/)
 * [Writing Logic with Thunk](https://redux.js.org/usage/writing-logic-thunks)
 * [A guide to React forms and events using Formik](https://blog.logrocket.com/guide-react-forms-events-formik/)
 
 ## Libraries
-* [semantic-ui-calendar-react](https://www.npmjs.com/package/semantic-ui-calendar-react)
+* [Formik](https://formik.org/)
 * [Yup](https://github.com/jquense/yup)
+* [react-confirm](https://www.npmjs.com/package/react-confirm)
+* [react-i18next](https://www.npmjs.com/package/react-i18next)
+* [react-redux](https://www.npmjs.com/package/react-redux)
+* [semantic-ui-calendar-react](https://www.npmjs.com/package/semantic-ui-calendar-react)
