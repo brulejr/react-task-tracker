@@ -22,6 +22,11 @@
   "locales": [
     {
       "id": "en",
+      "confirmation": {
+        "no": "No",
+        "yes": "Yes",
+        "areyousure": "Are you sure?"
+      },
       "page": {
         "framework": {
           "title": "Task Tracker",
@@ -39,6 +44,7 @@
           "version": "Version {{version}}"
         },
         "AddTask": {
+          "title": "Create New Task",
           "fields": {
             "task": {
               "label": "Task",
@@ -53,10 +59,15 @@
             }
           },
           "buttons": {
-            "saveTask": "Save Task"
+            "submit": "Save Task",
+            "reset": "Reset"
           },
           "validation": {
+            "dayRequired": "Please select a day",
             "taskRequired": "Please add a task"
+          },
+          "messages": {
+            "dirtyTask": "This task has changes that you will lose if you continue."
           }
         },
         "Tasks": {
@@ -68,6 +79,11 @@
     },
     {
       "id": "es",
+      "confirmation": {
+        "no": "Non",
+        "yes": "Si",
+        "areyousure": "Estas segyro?"
+      },      
       "page": {
         "framework": {
           "title": "Rastreador de Tareas",
@@ -85,6 +101,7 @@
           "version": "Version {{version}}"
         },
         "AddTask": {
+          "title": "Crear Nueva Tarea",
           "fields": {
             "task": {
               "label": "Tarea",
@@ -99,9 +116,11 @@
             }
           },
           "buttons": {
-            "saveTask": "Guardar Tarea"
+            "reset": "Reiniciar",
+            "submit": "Guardar Tarea"
           },
           "validation": {
+            "dayRequired": "Por favor seleccione un dia",
             "taskRequired": "Por favor agregue una tarea"
           }
         },

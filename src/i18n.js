@@ -3,7 +3,7 @@ import Backend from 'i18next-http-backend'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
 
-const LOCALES_URL = `${process.env.REACT_APP_DATA_URL}/locales`
+const LOCALES_URL = `${process.env.REACT_APP_I18N_URL}/locales`
 
 i18n
   .use(Backend)
